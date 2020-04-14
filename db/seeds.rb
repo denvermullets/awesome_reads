@@ -46,6 +46,7 @@ puts "Created Author"
 
 50.times do 
     Book.create(
+        # book_genre_id: rand(1..49),
         author_id: rand(1..49),
         title: Faker::Book.title,
         description: Faker::Movies::BackToTheFuture.quote,
