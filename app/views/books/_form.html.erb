@@ -1,0 +1,28 @@
+<% if flash[:errors] %>
+<ul>
+    <% flash[:errors].each do |error| %>
+        <ol><%= error %><ol>
+    <% end %>
+</ul>
+<% end %>
+
+<%= form_for @book do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br><br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <br><br><br>
+    <%= f.label :author_id %>
+    <%= f.text_field :author_id %>
+    <br><br>
+
+    <%= f.label :img_url %>
+    <%= f.text_area :img_url %>
+    <br><br>
+    <%= f.label :isbn %>
+    <%= f.number_field :isbn %>
+    <br><br>
+    <%= f.submit %>
+<% end %>
+<!-- we need to add a Genre select dropbox, but we don't have Genre in our book table, need to figure it out -->

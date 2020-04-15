@@ -1,5 +1,7 @@
 <h1><%= @book.title %></h1>
     <%= @book.img_url %>
+    <h4>Author:</h4><%= link_to @book.author.name, @book.author %>
+    
 
 <ul>   
     <li><h4>Description: </h4><%= @book.description %></li><br><hr>
@@ -14,3 +16,4 @@
     <% end %>
     <li><h4>ISBN: </h4><%= @book.isbn %></li><br>
 </ul>
+<!--<%= button_to 'Go back', books_path, method: :get, action: 'show'%>-->
