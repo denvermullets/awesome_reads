@@ -8,5 +8,5 @@ class AuthorsController < ApplicationController
         @author = Author.find(params[:id])
     end 
 
-    
+
 end

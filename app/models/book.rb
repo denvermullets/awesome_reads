@@ -20,4 +20,12 @@ class Book < ApplicationRecord
         end
       end
 
+    
+    
+    # def search_title(title)
+    #     url = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{title}")
+    #     book_info = JSON.parse(url)
+    #     byebug
+    # end 
+
 end
