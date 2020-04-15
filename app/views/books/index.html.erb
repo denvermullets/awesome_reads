@@ -3,7 +3,7 @@
     <% @books.each do |book| %>
         <li><%= book.img_url %></li><br>
         <li><P>Title: </P><%= link_to book.title, book %></li><br>
-        <li><P>Author: </P><%= book.author.name %></li><br><hr>
+        <li><P>By: </P><%= book.author.name %></li><br><hr>
     <% end %>
 
 </ul>

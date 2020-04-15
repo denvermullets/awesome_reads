@@ -16,7 +16,13 @@
     <%= f.label :author_id %>
     <%= f.text_field :author_id %>
     <br><br>
-
+    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name %>
+  <br/>
+  <br/>
+  <%= f.fields_for :genres, @book.genres.build do |genres_fields| %>
+    <%= genres_fields.label :name, "Genre" %>
+    <%= genres_fields.text_field :genre_name %>
+    <% end %>
     <%= f.label :img_url %>
     <%= f.text_area :img_url %>
     <br><br>
