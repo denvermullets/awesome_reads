@@ -1,0 +1,16 @@
+<h1><%= @book.title %></h1>
+    <%= @book.img_url %>
+
+<ul>   
+    <li><h4>Description: </h4><%= @book.description %></li><br><hr>
+    <h4>Genres: </h4><% @book.genres.each do |genre| %>
+    <ol><%= genre.genre_name %></ol>
+    <% end %><br><hr>
+    <h4>Reviews: </h4><% @book.reviews.each do |review| %>
+    <ol><p> Title: </p> <%= review.title %></ol><br>
+    <ol><p> Rating: </p><%= review.rating%></ol><br>
+    <ol><p> Comment: </p><%= review.comment%></ol><br>
+    <ol><p> Reader: </p><%= review.user_profile.name%></ol><br><hr>
+    <% end %>
+    <li><h4>ISBN: </h4><%= @book.isbn %></li><br>
+</ul>
