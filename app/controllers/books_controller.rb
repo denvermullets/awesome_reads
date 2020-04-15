@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-before_action :find_book, only:[:show, :edit, :new, :create, :destroy]
+before_action :find_book, only:[:show, :edit, :update, :destroy]
     def index
         @books = Book.all 
     end 
@@ -7,6 +7,20 @@ before_action :find_book, only:[:show, :edit, :new, :create, :destroy]
     def show
     end 
        
+    def new
+        @book = Book.new 
+    end 
+
+    def create 
+        book = Book.create(book_params)
+        if book.valid?
+            redirect_to book
+        else
+            flash[:errors] = @book.errors.full_messages
+            redirect_to new_book_path
+        end 
+
+    end 
     
 
     
@@ -17,6 +31,7 @@ before_action :find_book, only:[:show, :edit, :new, :create, :destroy]
     end 
 
     def book_params
-        params.require(:book).permit(:author_id, :title, :description,:isbn, :img_url)
+        params.require(:book).permit(:author_id, :title, :description,:isbn, :img_url) 
+        
     end 
 end
