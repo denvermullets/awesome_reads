@@ -4,5 +4,6 @@ class UserProfile < ApplicationRecord
 
     has_many :reviews
 
-    
+
+  
 end

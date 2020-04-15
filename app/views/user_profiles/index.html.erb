@@ -1,0 +1,7 @@
+<h1>All User Profiles</h1>
+<ul>
+    <% @user_profiles.each do |user| %>
+    <li><%= link_to user.name, user %></li>       
+    <% end %>
+
+</ul>
