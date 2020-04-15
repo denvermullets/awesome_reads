@@ -1,7 +1,7 @@
-<h1>hi</h1>
-
+<h1>Genre List</h1>
 <ul>
-<% @genres.each do |name| %>
-    <li><%= name.genre_name %></li>
-<% end %>
+    <% @genres_name.uniq.each do |name| %>
+        <li><%= name %></li>
+    <% end %>
+
 </ul>
