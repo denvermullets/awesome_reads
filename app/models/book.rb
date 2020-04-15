@@ -10,4 +10,12 @@ class Book < ApplicationRecord
     has_many :user_books
     has_many :user_profiles, through: :user_books
 
+    
+    
+    # def search_title(title)
+    #     url = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{title}")
+    #     book_info = JSON.parse(url)
+    #     byebug
+    # end 
+
 end

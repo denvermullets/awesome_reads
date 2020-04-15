@@ -22,9 +22,15 @@ before_action :find_book, only:[:show, :edit, :update, :destroy]
 
     end 
     
+    def search
+        @search = search_title(params[:title])
+
+    end 
 
     
     private 
+
+    
 
     def find_book 
         @book = Book.find(params[:id])
