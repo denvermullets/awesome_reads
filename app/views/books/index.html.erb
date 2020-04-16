@@ -1,9 +1,19 @@
 <h1>All Books</h1>
-<ul>
-    <% @books.each do |book| %>
-        <%= image_tag book.img_url %><br>
-        <li><P>Title: </P><%= link_to book.title, book %></li><br>
-        <li><P>By: </P><%= book.author.name %></li><br><hr>
-    <% end %>
 
-</ul>
+<div class="container">
+    <div class="row row-cols-4 row-cols-md-6" >
+        <% @books.each do |book| %>
+            <div class="col-sm-6" >
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img class="card-img-top w-50" src="<%=book.img_url %>">
+                        <hr>
+                        <h4 class="card-title text-center"><%=link_to book.title, book %></h4>
+                        <p class="card-text" style="height: 10rem"><%= link_to book.author.name, author_path(book.author), :class => "btn btn-info"%></p>
+                    </div>
+            
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

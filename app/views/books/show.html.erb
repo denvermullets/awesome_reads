@@ -10,7 +10,7 @@
     <br><hr>
     <h4>Genres:</h4>
     
-        <% @book.genres.each do |genre| %>
+        <% @book.genres.uniq.each do |genre| %>
             <ol><%= genre.genre_name %></ol>
         <% end %>
         
@@ -24,11 +24,10 @@
         <% end %>
     <li><h4>ISBN: </h4><%= @book.isbn %></li><br>
     
-    <%# <li><h4>Rating: </h4><%= @book.average_rating %>
+    <%# <li><h4>Rating: </h4><%= @book.average_rating</li> %>
     
-    <% if @book.reviewed_books.any? %>
-        <li><h4>Rating: </h4><%= @book.books.average(:rating) %></li><br>
-    <% end %>
+    <%# <% if @book.reviewed_books.any? %>
+     <%# <li><h4>Rating: </h4><%= @book.books.average(:rating) %>     <%# <% end %>
 
 
 
