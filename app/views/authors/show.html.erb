@@ -1,7 +1,37 @@
-<h1><%= @author.name %></h1>
-<ul>
-    <% @author.books.each do |book|%>
-        <li>Book Title: <%= link_to book.title, book %></li><br>
-        <li><%= book.img_url %></li><br><hr>
-    <% end %>
-</ul>
+
+<div class="container">
+    <br>
+    <h4><%= @author.name %></h4>
+    <br>
+  <div class="row">
+    <div class="col-12">
+		<table class="table table-image">
+		  <thead>
+		    <tr>
+		      <th scope="col">Cover</th>
+		      <th scope="col">Book Title</th>
+		      <th scope="col">Rating</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+          <% @author.books.each do |book| %>
+		    <tr>
+            <td class="w-25">
+              <img src="<%=book.img_url %>" class="img-fluid img-thumbnail" alt="<%= book.title %>">
+            </td>
+            <td><%=link_to book.title, book %></td>
+            <% avg_rating = book.reviews.average(:rating) %>
+              <% if avg_rating.nil? %>
+                <% avg_rating = "N/A"%>
+              <% end %>
+            <td><%=avg_rating%></td>
+		    </tr>
+          <% end %>
+		    
+		  </tbody>
+		</table>   
+    </div>
+  </div>
+</div>
+
+
