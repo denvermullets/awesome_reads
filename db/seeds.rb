@@ -21,6 +21,13 @@ require 'faker'
 
 # puts "Destroyed tables"
 
+# ! - how to use -
+# ! - rails db:drop
+# ! - rails db:migrate
+# ! - rails db:seed
+# ! - the seed file has a good chance of crashing, just keep rerunning the seed file
+# ! - to keep populating with books
+
 50.times do 
     url = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{Faker::Book.title}")
     book_title_parse = JSON.parse(url)
