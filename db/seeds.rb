@@ -20,6 +20,14 @@ require 'faker'
 # UserBook.destroy_all
 
 # puts "Destroyed tables"
+# 15.times do 
+#     UserProfile.create(
+#         name: Faker::Books::Dune.character,
+#         bio: Faker::Books::Dune.quote,
+#     )
+# end 
+
+# puts "Created 15 users"
 
 # ! - how to use -
 # ! - rails db:drop
@@ -68,14 +76,6 @@ require 'faker'
 end 
 
 
-# 15.times do 
-#     UserProfile.create(
-#         name: Faker::Books::Dune.character,
-#         bio: Faker::Books::Dune.quote,
-#     )
-# end 
-
-# puts "Created 15 users"
 
 
 # 50.times do 

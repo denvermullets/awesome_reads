@@ -27,6 +27,7 @@ before_action :find_book, only:[:show, :edit, :update, :destroy]
 
     def create 
         book = Book.create(book_params)
+        
         if book.valid?
             redirect_to book
         else
