@@ -1,7 +1,7 @@
 <h1>All Books</h1>
 <ul>
     <% @books.each do |book| %>
-        <li><%= book.img_url %></li><br>
+        <%= image_tag book.img_url %><br>
         <li><P>Title: </P><%= link_to book.title, book %></li><br>
         <li><P>By: </P><%= book.author.name %></li><br><hr>
     <% end %>
