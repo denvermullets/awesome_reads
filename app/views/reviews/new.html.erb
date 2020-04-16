@@ -1,16 +1,21 @@
 <h1>Write a new Review</h1>
+<div class="container">
 
-<%= form_for @review do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %><br><br>
-    <%= f.label :comment %>
-    <%= f.text_area :comment %><br><br>
-    <%= f.label :user_profile_id %>
-    <%= f.number_field :user_profile_id %><br><br>
-    <%= f.label :rating %>
-    <%= f.number_field :rating %><br><br>
-    <%= f.label :book_id %>
-    <%= f.number_field :book_id, :value => @book_id %><br><br>
+<div class="form-group">
+    <%= form_for @review do |f| %>
+        <%= f.label :title, "Title:" %>
+        <%= f.text_field :title, class: "form-control" %><br>
+        <%= f.label :comment, "Review:" %>
+        <%= f.text_area :comment, class: "form-control" %><br>
+        <%= f.label :user_profile_id %>
+        <%= f.number_field :user_profile_id, class: "form-control"%><br><br>
+        <%= f.label :rating, "Rating (1-5):"%>
+        <%= f.number_field :rating, class: "form-control" %><br><br>
+        <%= f.label :book_id %>
+        <%= f.number_field :book_id, value: @book_id%><br><br>
 
-    <%= f.submit "Add your review"%>
-<% end %>
+        <%= f.submit "Add your review",  class: "btn btn-primary"%>
+    <% end %>
+</div>
+
+</div>
