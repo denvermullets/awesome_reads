@@ -4,7 +4,18 @@ require 'json'
 class BooksController < ApplicationController
 before_action :find_book, only:[:show, :edit, :update, :destroy]
     def index
-        @books = Book.all 
+        # if there's a query loaded in params on reload, trigger the search via api
+        # used this to get a good idea https://melvinchng.github.io/rails/SearchFeature.html#43-adding-a-simple-search-feature
+
+        if params[:q]
+            @books = Book.where('title LIKE ?', "%#{params[:q]}%")
+            # use this to ping API
+            # @search = search_title(params[:q])
+          else
+            @books = Book.all 
+          end
+
+        # @books = Book.all 
     end 
 
     def show
@@ -26,8 +37,7 @@ before_action :find_book, only:[:show, :edit, :update, :destroy]
     end 
     
     def search
-        @search = search_title(params[:title])
-
+        @search = search_title(params[:q])
     end 
 
     

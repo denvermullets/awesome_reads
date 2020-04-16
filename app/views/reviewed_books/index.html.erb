@@ -1,0 +1,9 @@
+<h1>All books with reviews</h1>
+
+<ul>
+    <% @reviewed_books.each do |rev_book|%>
+
+        <li> <%=  link_to rev_book.book.title, book_path(rev_book.book_id) %>  </li>
+
+    <% end %>
+</ul>
