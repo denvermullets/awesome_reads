@@ -4,4 +4,6 @@ class Review < ApplicationRecord
     has_many :reviewed_books
     has_many :books, through: :reviewed_books
 
+    
+
 end
