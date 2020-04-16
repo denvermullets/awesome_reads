@@ -1,14 +1,9 @@
 <h1><%= @user_profile.name %></h1>
     <h5> Bio: <%= @user_profile.bio %></h5>
 
-    
-    <h4>Reviews: </h4>
-    
-    <% @user_profile.reviews.each do |review| %>
-
-        <ol><p> Book: </p> <%= review.book_id %></ol><br>
-        <ol><p> Title: </p> <%= review.title %></ol><br>
-        <ol><p> Rating: </p><%= review.rating%></ol><br>
-        <ol><p> Comment: </p><%= review.comment%></ol><br><hr>   
-     <% end %>
+You have reviewed: 
+<ul>
+<% @user_profile.books.each do |book|%>
+    <li><%= link_to book.title, review_path(book) %></li>
+    <% end %>
 </ul>
