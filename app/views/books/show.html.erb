@@ -1,8 +1,11 @@
 <h1><%= @book.title %></h1>
     <%= image_tag @book.img_url %>
-
     <h4>Author: <%= link_to @book.author.name, @book.author %></h4>
-    
+<h1>Page views left <%= session[:counter] %></h1>
+
+<% if session[:counter].to_i <= 0%> 
+  <h1>You must log in</h1>
+  
 
 <ul>   
 
@@ -33,3 +36,5 @@
 
 </ul>
 <%= button_to 'Write a Review', new_review_book_path(book_id: @book.id), method: :get, action: 'show'%>
+
+

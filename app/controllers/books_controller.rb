@@ -19,6 +19,10 @@ before_action :find_book, only:[:show, :edit, :update, :destroy]
     end 
 
     def show
+        if session[:counter] == nil
+            session[:counter] = 3 
+        end 
+          session[:counter] = session[:counter].to_i - 1
     end 
        
     def new

@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   get 'reviews/new/:book_id', to: 'reviews#new', as: :new_review_book
 
+  get '/sessions/login', to: 'sessions#new', as: 'login'
+  post '/sessions', to: 'sessions#create', as: 'sessions'
+  delete '/sessions', to: 'sessions#destroy'
 end
