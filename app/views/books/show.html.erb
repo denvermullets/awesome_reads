@@ -5,21 +5,19 @@
     
 
 <ul>   
-    <h4>Description: </h4><%= @book.description %>
-    <br><hr>
-        <h4>Genres: </h4>
-        <% @book.genres.each do |genre| %>
-            <ol><%= genre.genre_name %></ol>
-        <% end %>
-        <br><hr>
-    <h4>Reviews: </h4>
-        <% @book.reviews.each do |review| %>
-            <ol>Title: <%= review.title %></ol><br>
-            <ol> Rating: <%= review.rating%></ol><br>
-            <ol> Comment: <%= review.comment%></ol><br>
-            <ol> Reader: <%= review.user_profile.name%></ol>
-            <br><hr>
-        <% end %>
-    <li><h4>ISBN: </h4><%= @book.isbn %></li><br>
+
+    <li><h4>Description: </h4><%= @book.description %></li><br><hr>
+    <h4>Genres: </h4><% @book.genres.each do |genre| %>
+    <ol><%= genre.genre_name %></ol>
+    <% end %><br><hr>
+    <h4>Reviews: </h4><% @book.reviews.each do |review| %>
+    <ol><p> Title: </p> <%= review.title %></ol><br>
+    <ol><p> Average Rating: </p><%= review.rating%></ol><br>
+    <ol><p> Comment: </p><%= review.comment%></ol><br>
+    <ol><p> Reader: </p><%= review.user_profile.name%></ol><br><hr>
+    <% end %>
+  <li><h4>ISBN: </h4><%= @book.isbn %></li><br>
+    <li><h4>Rating: </h4><%= @book.average_rating %></li><br>
+
 </ul>
 <%= button_to 'Go back', books_path, method: :get, action: 'show'%>
