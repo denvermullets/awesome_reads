@@ -1,9 +1,37 @@
-<h1>All books with reviews</h1>
 
-<ul>
-    <% @reviewed_books.each do |rev_book|%>
+<div class="container">
+<br>
+<h4>All reviewed books</h4>
+  <div class="row">
+    <div class="col-12">
+		<table class="table table-image">
+		  <thead>
+		    <tr>
+		      <th scope="col">Cover</th>
+		      <th scope="col">Book Title</th>
+		      <th scope="col">Author</th>
+		      <th scope="col">Rating</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+          <% @reviewed_books.uniq.each do |rev_book| %>
+		    <tr>
+            <td class="w-25">
+              <img src="<%=rev_book.book.img_url %>" class="img-fluid img-thumbnail" alt="<%=rev_book.book.title %>">
+            </td>
+            <td><%=link_to rev_book.book.title, book_path(rev_book.book) %></td>
+            <td><%=link_to rev_book.book.author.name, author_path(rev_book.book.author) %></td>
+            <% avg_rating = rev_book.book.reviews.average(:rating) %>
+              <% if avg_rating.nil? %>
+                <% avg_rating = "N/A"%>
+              <% end %>
+            <td><%=avg_rating%></td>
+		    </tr>
+          <% end %>
+		    
+		  </tbody>
+		</table>   
+    </div>
+  </div>
+</div>
 
-        <li> <%=  link_to rev_book.book.title, book_path(rev_book.book_id) %>  </li>
-
-    <% end %>
-</ul>
