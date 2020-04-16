@@ -1,0 +1,16 @@
+<h1>Write a new Review</h1>
+
+<%= form_for @review do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br><br>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %><br><br>
+    <%= f.label :user_profile_id %>
+    <%= f.number_field :user_profile_id %><br><br>
+    <%= f.label :rating %>
+    <%= f.number_field :rating %><br><br>
+    <%= f.label :book_id %>
+    <%= f.number_field :book_id, :value => @book_id %><br><br>
+
+    <%= f.submit "Add your review"%>
+<% end %>

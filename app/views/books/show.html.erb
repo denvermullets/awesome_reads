@@ -31,5 +31,6 @@
     <% end %>
 
 
+
 </ul>
-<%= button_to 'Go back', books_path, method: :get, action: 'show'%>
+<%= button_to 'Write a Review', new_review_book_path(book_id: @book.id), method: :get, action: 'show'%>

@@ -43,11 +43,11 @@ before_action :find_book, only:[:show, :edit, :update, :destroy]
     
     private 
 
-    def search_title(title)
-        url = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{title}")
-        book_title = JSON.parse(url)
-        byebug
-    end     
+    # def search_title(title)
+    #     url = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{title}")
+    #     book_title = JSON.parse(url)
+    #     byebug
+    # end     
 
     def find_book 
         @book = Book.find(params[:id])
