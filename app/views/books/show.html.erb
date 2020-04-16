@@ -1,40 +1,65 @@
-<h1><%= @book.title %></h1>
-    <%= image_tag @book.img_url %>
-    <h4>Author: <%= link_to @book.author.name, @book.author %></h4>
+
 <h1>Page views left <%= session[:counter] %></h1>
 
 <% if session[:counter].to_i <= 0%> 
   <h1>You must log in</h1>
-  
 
-<ul>   
 
-    <h4>Description: </h4><%= @book.description %>
-    <br><hr>
-    <h4>Genres:</h4>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-3">
+            <div class="card border-0">
+                <div class="card-horizontal">
+                    <div class="img-square-wrapper my-auto">
+                        <img class="text-center" src="<%=@book.img_url%>%" alt="<%= @book.title %>">
+                    </div>
+                    <div class="card-body border-0">
+                        <h3 class="card-title"><%= @book.title %></h3>
+                        <h5 class="card-title">Written by: <%= link_to @book.author.name, @book.author %></h5>
+                            <% @book.genres.uniq.each do |genre| %>    
+                                <h6 class="card-title">ISBN: <%= @book.isbn %></h6>
+                                <h6 class="card-title">Genres: <%= genre.genre_name %></h6>
+                            <% end %>
+                        <p class="card-text"><%= @book.description %></p>
+                        <%= button_to 'Write a Review', new_review_book_path(book_id: @book.id), method: :get, action: 'show', class: "btn btn-info"%>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <% avg_rating = @book.reviews.average(:rating) %>
+                        <% if avg_rating.nil? %>
+                            <% avg_rating = "N/A"%>
+                    <% end %>
+                    <small class="text-muted">Average Rating: <%=avg_rating%></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <br><br>
+    <h4>Reviews:</h4>
+</div>
+<% @book.reviews.each do |review| %>
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <div class="card">
+                        <div class="card-horizontal">
+                            <div class="card-body">
+                                <h4 class="card-title"><%= review.title %></h4>
+                                <h5 class="card-title">Review by: <%= link_to review.user_profile.name, user_profile_path(review.user_profile) %></h5>   
+                                <h6 class="card-title">Rating: <%= review.rating %></h5>
+                                <p class="card-text"><%= review.comment %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+<% end %>
+   
     
-        <% @book.genres.uniq.each do |genre| %>
-            <ol><%= genre.genre_name %></ol>
-        <% end %>
-        
-    <br><hr>
-    <h4>Reviews: </h4>
-        <% @book.reviews.each do |review| %>
-            <ol><p> Title: </p> <%= review.title %></ol><br>
-            <ol><p> Average Rating: </p><%= review.rating%></ol><br>
-            <ol><p> Comment: </p><%= review.comment%></ol><br>
-            <ol><p> Reader: </p><%= review.user_profile.name%></ol><br><hr>
-        <% end %>
-    <li><h4>ISBN: </h4><%= @book.isbn %></li><br>
-    
-    <%# <li><h4>Rating: </h4><%= @book.average_rating</li> %>
-    
-    <%# <% if @book.reviewed_books.any? %>
-     <%# <li><h4>Rating: </h4><%= @book.books.average(:rating) %>     <%# <% end %>
-
-
-
-</ul>
-<%= button_to 'Write a Review', new_review_book_path(book_id: @book.id), method: :get, action: 'show'%>
-
 
