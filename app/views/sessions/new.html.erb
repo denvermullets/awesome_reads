@@ -1,3 +1,5 @@
+<div class="container w-50">
+<br>
 <h1>Login</h1>
 
 <ol>
@@ -8,12 +10,15 @@
   <% end %>
 </ol>
 
-<%= form_for :session, url: sessions_path  do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="form-group">
+    <%= form_for :session, url: sessions_path  do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password%>
-
-  <%= f.submit %>
-<% end %>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control"%>
+      <br>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
