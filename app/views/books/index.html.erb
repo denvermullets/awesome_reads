@@ -18,11 +18,12 @@
             </td>
             <td><%=link_to book.title, book %></td>
             <td><%=link_to book.author.name, author_path(book.author) %></td>
-            <% avg_rating = book.reviews.average(:rating) %>
+             <% avg_rating = book.reviews.average(:rating) %>
               <% if avg_rating.nil? %>
                 <% avg_rating = "N/A"%>
               <% end %>
             <td><%=avg_rating%></td>
+         
 		    </tr>
           <% end %>
 		    

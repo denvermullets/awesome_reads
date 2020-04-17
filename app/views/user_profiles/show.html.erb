@@ -1,9 +1,14 @@
 <h1><%= @user_profile.name %></h1>
     <h5> Bio: <%= @user_profile.bio %></h5>
+<%= button_to "UPDATE ACCOUNT", edit_user_profile_path(@user_profile), method: :get%>
 
-You have reviewed: 
+This reader have reviewed: 
 <ul>
 <% @user_profile.books.each do |book|%>
-    <li><%= link_to book.title, review_path(book) %></li>
+    <li><%= link_to book.title, book %></li>
     <% end %>
 </ul>
+
+
+
+<%= button_to "DELETE ACCOUNT", user_profile_path(@user_profile), method: :delete%>

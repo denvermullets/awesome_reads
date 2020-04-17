@@ -25,6 +25,24 @@ class UserProfilesController < ApplicationController
 
     end 
 
+    def edit
+    end 
+
+    def update
+        if @user_profile.update(user_profile_params)
+            redirect_to user_profile_path
+        else
+            flash[:errors] = user_profile.errors.full_messages
+            redirect_to edit_user_profile_path
+        end 
+    end 
+
+    def destroy
+        @user_profile.destroy
+        redirect_to login_path
+
+    end 
+
     private 
 
 

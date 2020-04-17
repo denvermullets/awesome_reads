@@ -5,5 +5,5 @@ class Review < ApplicationRecord
     has_many :books, through: :reviewed_books
 
     
-
+    
 end
