@@ -18,10 +18,10 @@ h1{
         <% end %>
         <div class = "btn-group">
             <%= button_to "Update Account", edit_user_profile_path(@user_profile), method: :get, class: "btn btn-info"%>
-            <%= button_to "DELETE ACCOUNT", user_profile_path(@user_profile), method: :delete, class: "btn btn-danger"%><br><br>
+        
         </div><br><br><hr>
 
-<div id = "m"><h1> Your book collection</h1></div>
+            <h1> Your book collection</h1>
     </div>
 </div>
 
@@ -35,7 +35,6 @@ h1{
                     <th scope="col">Cover</th>
                     <th scope="col">Book Title</th>
                     <th scope="col">Author</th>
-                    <th scope="col">Rating</th>
                 </tr>
             </thead>
             <tbody>
