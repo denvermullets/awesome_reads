@@ -20,15 +20,8 @@ class Book < ApplicationRecord
         end
       end
 
-      # def average_rating
-      #   all_rating = []
-      #   all_rating = self.reviews.map do |review|
-      #     review.rating
-      #   end 
-      #   average_rating = all_rating.sum/all_rating.count
-      #   average_rating
-      # end 
-    
+ 
+      
     
     # def search_title(title)
     #     url = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{title}")

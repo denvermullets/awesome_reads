@@ -136,15 +136,15 @@ end
 # end 
 # puts "Created UserBook"
 
-# 50.times do 
-#     Review.create(
-#         user_profile_id: rand(1..49),
-#         book_id: rand(1..49),
-#         rating: rand(1..5),
-#         title: Faker::Movies::BackToTheFuture.quote,
-#         comment: Faker::TvShows::Seinfeld.quote,
-#     )
-# end 
+50.times do 
+    Review.create(
+        user_profile_id: rand(1..49),
+        book_id: rand(1..49),
+        rating: rand(1..5),
+        title: Faker::Movies::BackToTheFuture.quote,
+        comment: Faker::TvShows::Seinfeld.quote,
+    )
+end 
 
 # puts "Created Review"
 
