@@ -1,21 +1,25 @@
-<h1>All User Profiles</h1>
-<ul>
-    <% @user_profiles.each do |user| %>
-    <li><%= link_to user.name, user %></li>       
-    <% end %>
-
-</ul>
-<h1>Fantasy Creatures</h1>
-
-<div class="index-container">
-
-  <% @fantasy_creatures.each do |creature| %>
-    <div class="index-tile">
-      <h2><%= link_to creature.name, fantasy_creature_path(creature) %></h2>
-      <img class="index-img" src="<%= creature.img_url %>" alt="creature">
-      <% if @current_user %>
-        <%= button_to "DELETE CREATURE", fantasy_creature_path(creature), method: :delete%>
-      <% end %>
+<div class="container">
+<br>
+<h4>All User Profiles</h4>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-image">
+                <thead>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Bro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @user_profiles.each do |user| %>
+                    <tr>
+                        <td><%= user.name%></td>
+                        <td><%= user.bio %></td>
+                    <% end %>
+                    </tr>
+                </tbody>
+            </table>   
+        </div>
     </div>
-  <% end %>
 </div>
+

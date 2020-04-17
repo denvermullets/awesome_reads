@@ -1,6 +1,6 @@
 class UserProfilesController < ApplicationController
-    before_action :find_user_profile, only:[:show, :edit, :update, :destroy]
     skip_before_action :authorized, only: [:new, :create]
+    before_action :find_user_profile, only:[:show, :edit, :update, :destroy]
     def index
         @user_profiles = UserProfile.all 
     end 
@@ -40,8 +40,8 @@ class UserProfilesController < ApplicationController
     def destroy
         @user_profile.destroy
         redirect_to login_path
-
     end 
+
 
     private 
 

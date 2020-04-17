@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :genres
   resources :authors
 
+
   get 'search', to: 'books#search', as: 'search_books'
 
   get 'reviews/new/:book_id', to: 'reviews#new', as: :new_review_book
