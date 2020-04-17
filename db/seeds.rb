@@ -20,10 +20,12 @@ require 'faker'
 # UserBook.destroy_all
 
 # puts "Destroyed tables"
+
 # 15.times do 
 #     UserProfile.create(
 #         name: Faker::Books::Dune.character,
 #         bio: Faker::Books::Dune.quote,
+#         password_digest: "demo" # this is a dummy password for dummy seed users
 #     )
 # end 
 

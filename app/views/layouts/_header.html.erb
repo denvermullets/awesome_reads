@@ -38,5 +38,14 @@
           <%# <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> %>
           <%# <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> %>
         </form>
+         <!-- CHECK TO SEE IF LOGGED IN, IF SO UPDATE NAVBAR PROFILE NAVIGATION -->
+          <% if @current_user_profile %>
+            <div class="navbar-nav">
+            <%= link_to "#{@current_user_profile.name}'s Profile", user_profile_path(@current_user_profile), class: "nav-item nav-link mx-3" %>
+            <%= link_to "Logout", sessions_path, method: :delete, class: "nav-item nav-link mx-3" %>
+          <% else %>
+            <%= link_to "Sign in", login_path, class: "nav-item nav-link mx-3" %>
+            <%= link_to "Sign up", new_user_profile_path, class: "nav-item nav-link mx-3" %>
+          <% end %>
       </div>
     </nav>
