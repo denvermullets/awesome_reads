@@ -1,14 +1,61 @@
-<h1><%= @user_profile.name %></h1>
-    <h5> Bio: <%= @user_profile.bio %></h5>
-<%= button_to "UPDATE ACCOUNT", edit_user_profile_path(@user_profile), method: :get%>
+<style>
+h1{
+    color: darkgrey;
+}
+</style>
 
-This reader have reviewed: 
-<ul>
-<% @user_profile.books.each do |book|%>
-    <li><%= link_to book.title, book %></li>
-    <% end %>
-</ul>
+<img class="index-img" src = "https://images.pexels.com/photos/415071/pexels-photo-415071.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="book"  width="1800" height="400">
+
+<br><br>
+<div class="container w-50">
+    <div class="form-group">
+        <%= form_for @user_profile do |f| %>
+            <%= f.label :name, "Name:" %>
+            <%= f.text_field :name, class: "form-control" %><br>
+            <%= f.label :bio, "Bio:" %>
+            <%= f.text_area :bio, class: "form-control" %><br>
+           
+        <% end %>
+        <div class = "btn-group">
+            <%= button_to "Update Account", edit_user_profile_path(@user_profile), method: :get, class: "btn btn-info"%>
+            <%= button_to "DELETE ACCOUNT", user_profile_path(@user_profile), method: :delete, class: "btn btn-danger"%><br><br>
+        </div><br><br><hr>
+
+<div id = "m"><h1> Your book collection</h1></div>
+    </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <table class="table table-image">
+            <thead>
+                <tr>
+                    <th scope="col">Cover</th>
+                    <th scope="col">Book Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @user_profile.reviews.each do |review|%>
+                    <%review.books.each do |book| %>
+		            <tr>
+                        <td class="w-25">
+                            <img src="<%=book.img_url %>" class="img-fluid img-thumbnail" alt="<%= book.title %>">
+                        </td>
+                        <td><%=link_to book.title, book %></td>
+                        <td><%=link_to book.author.name, author_path(book.author) %></td>
+                     </tr>
+                        <% end %>
+                    <% end %> 
+		  </tbody>
+		</table>   
+    </div>
+  </div>
+</div>
 
 
 
-<%= button_to "DELETE ACCOUNT", user_profile_path(@user_profile), method: :delete%>
+

@@ -15,19 +15,7 @@
             <%= link_to 'Reviewed Books', reviewed_books_path, class: 'nav-link' %>
             <%# <a class="nav-link" href="#">Link</a> %>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Temp Views
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to 'All Users', user_profiles_path, class: 'dropdown-item' %>
-              <%= link_to 'Create a New User', new_user_profile_path, class: 'dropdown-item' %>
-              <%= link_to 'Write a New Review', new_review_path, class: 'dropdown-item' %>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
+          
         </ul>
         <form class="form-inline my-4 my-lg-2">
           <%= form_tag(search_books_path, method: 'get', class: 'navbar-form navbar-right') do %>
