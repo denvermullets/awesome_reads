@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_04_16_191433) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -19,8 +22,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_191433) do
   end
 
   create_table "book_genres", force: :cascade do |t|
-    t.integer "genre_id"
-    t.integer "book_id"
+    t.bigint "genre_id"
+    t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_book_genres_on_book_id"
@@ -44,8 +47,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_191433) do
   end
 
   create_table "reviewed_books", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "review_id"
+    t.bigint "book_id"
+    t.bigint "review_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_reviewed_books_on_book_id"
@@ -63,8 +66,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_191433) do
   end
 
   create_table "user_books", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "user_profile_id"
+    t.bigint "book_id"
+    t.bigint "user_profile_id"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
