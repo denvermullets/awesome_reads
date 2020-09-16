@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'books#index'
   resources :reviews
   resources :user_profiles
   resources :user_books
