@@ -1,24 +1,27 @@
-# README
+# Awesome-Reads
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Awesome-Reads User Nav](https://i.imgur.com/j76KWLu.gif)
 
-Things you may want to cover:
+### Description
+Awesome-Reads is a book review site, similar in idea to GoodReads. It uses the Google API to get book information.
 
-* Ruby version
+Deployed at: [awesome-reads.com](https://awesome-reads.com)
 
-* System dependencies
+Currently you can:
+  - write a review for a book
+  - see all reviews written
+  - see all users
+  - see all books by author
 
-* Configuration
+## To use locally
 
-* Database creation
+```
+bundle install
+rails s
+rails db:create
+rails db:migrate
+```
 
-* Database initialization
+## Contributions
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This was a group project that consisted of [Vivica Ma](https://github.com/chefvivica) and [Ryan Vaznis](https://github.com/denvermullets)
