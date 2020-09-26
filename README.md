@@ -17,9 +17,11 @@ Currently you can:
 
 ```
 bundle install
-rails s
+
 rails db:create
 rails db:migrate
+
+rails s
 ```
 
 ## Contributions
